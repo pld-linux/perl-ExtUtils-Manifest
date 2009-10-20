@@ -7,13 +7,13 @@
 %define	pnam	Manifest
 Summary:	ExtUtils::Manifest - utilities to write and check a MANIFEST file
 Name:		perl-ExtUtils-Manifest
-Version:	1.56
+Version:	1.57
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/ExtUtils/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	b6557064893b6e0279df68c87395554c
+# Source0-md5:	5a606c372a9800d7403f1c856a63d814
 URL:		http://search.cpan.org/dist/ExtUtils-Manifest/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
