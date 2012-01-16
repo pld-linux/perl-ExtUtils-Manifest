@@ -7,13 +7,13 @@
 %define	pnam	Manifest
 Summary:	ExtUtils::Manifest - utilities to write and check a MANIFEST file
 Name:		perl-ExtUtils-Manifest
-Version:	1.57
+Version:	1.60
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/ExtUtils/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	5a606c372a9800d7403f1c856a63d814
+# Source0-md5:	0146485d2f730a3676d0058cd4bbdd02
 URL:		http://search.cpan.org/dist/ExtUtils-Manifest/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -41,17 +41,17 @@ backslash-escaped.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Build.PL \
-	destdir=$RPM_BUILD_ROOT \
-	installdirs=vendor
-./Build
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
+%{__make}
 
-%{?with_tests:./Build test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-./Build install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
